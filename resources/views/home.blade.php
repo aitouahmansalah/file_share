@@ -22,9 +22,7 @@
             @foreach ($files as $file)
                 <li class="list-group-item">
                     <a href="{{ route('file.show', $file->id) }}">{{ $file->titre }}</a>
-                    <div>
-                        {{ $file->description }}
-                    </div>
+                    
                 </li>
             @endforeach
         </ul>

@@ -64,4 +64,16 @@ class FileController extends Controller
         }
 
     }
+
+    public function download(file $fille){
+        $filepath= $filepath = storage_path('app/public/' . $fille->document);
+        $fille->update(['downloads' => $fille->downloads + 1]);
+    
+        $headers = array(
+                  'Content-Type: application/pdf',
+                );
+                
+    
+        return response()->download($filepath, 'filename.pdf', $headers);
+    }
 }

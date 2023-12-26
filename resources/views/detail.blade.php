@@ -20,6 +20,9 @@
         <h2 class="mb-4">{{ $file->titre }}</h2>
         <p>Uploaded on: {{ $file->created_at }}</p>
         <p>downloads: {{ $file->downloads }} times</p>
+        <div>
+            {{ $file->description }}
+        </div>
         <a href="{{ route('download', $file->id) }}" class="btn btn-primary">Download</a>
     </div>
 

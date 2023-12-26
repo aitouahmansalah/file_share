@@ -18,14 +18,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/file', FileController::class);
-Route::get('/file/download/{id}', function( $file){
-    //$filepath= public_path().$file->document;
-    $user = file::find($file)->get();
-
-    $headers = array(
-              'Content-Type: application/pdf',
-            );
-            dd($user);
-
-    return response()->download($filepath, 'filename.pdf', $headers);
-})->name('download');
+Route::get('/file/download/{fille}', [FileController::class,'download'])->name('download');
